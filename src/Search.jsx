@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./Search.css";
 
 export const Search = ({ onSearch }) => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("github");
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
 
@@ -16,13 +16,16 @@ export const Search = ({ onSearch }) => {
       onSearch(response.data);
       setProfile(response.data);
     } catch (error) {
-      console.error("Error al buscar el perfil en GitHub: ", error.message);
+      console.log("Error al buscar el perfil en GitHub: ", error.message);
       setError("Hubo un error al buscar el perfil en GitHub");
     }
   };
 
+  useEffect(()=>{
+    handleSearch();
+  },[])
   const handleKeyDown = (e) => {
-    // Verificar si la tecla presionada es "Enter"
+   
     if (e.key === "Enter") {
       handleSearch();
     }
@@ -51,7 +54,14 @@ export const Search = ({ onSearch }) => {
         />
       </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && (
+      <p style={{ color: "white", background: "tomato", borderRadius: "5px", padding: "8px" }}>
+        {error}
+          {setTimeout(() => {
+          setError(null);
+          }, 3000)}
+      </p>
+    )}
 
       {profile && (
         <div className="card-container">
