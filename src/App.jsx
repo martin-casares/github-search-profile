@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { formatDistanceToNow } from "date-fns";
+import { format } from "date-fns";
+
 import { TbGitFork } from "react-icons/tb";
 import { FaRegStar } from "react-icons/fa";
 import { FaFileShield } from "react-icons/fa6";
+
 import { Search } from "./Search";
 
 import "./App.css";
@@ -34,6 +37,11 @@ function App() {
   useEffect(() => {
     handleRepos();
   }, [profile]);
+
+  const formatToYearMonthDay = (dateString) => {
+    const date = new Date(dateString);
+    return format(date, "yyyy-MM-dd");
+  };
 
   return (
     <>
@@ -77,7 +85,7 @@ function App() {
                       <div className="card-text">
                         <span className="card-text-title">{project.name}</span>
                         <span className="card-text-body">{project.git_url}</span>
-                        <span className="card-text-body">Created at: {project.created_at}</span>
+                        <span className="card-text-body">Created at: {formatToYearMonthDay(project.created_at)}</span>
                         <span className="card-text-footer">
                           <span><TbGitFork  size={14} style={{marginRight: "4px"}}/>{project.forks}</span>
                           <span><FaRegStar  size={14}  style={{marginRight: "4px"}}/>{project.stargazers_count}</span>
