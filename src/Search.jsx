@@ -3,9 +3,10 @@ import axios from "axios";
 
 import "./Search.css";
 
-export const Search = ({ onSearch }) => {
+export const Search = ({ onSearch}) => {
   const [username, setUsername] = useState("github");
   const [profile, setProfile] = useState(null);
+  
   const [error, setError] = useState(null);
 
   const handleSearch = async () => {
@@ -15,14 +16,16 @@ export const Search = ({ onSearch }) => {
       );
       onSearch(response.data);
       setProfile(response.data);
-    } catch (error) {
+      } catch (error) {
       console.log("Error al buscar el perfil en GitHub: ", error.message);
       setError("Hubo un error al buscar el perfil en GitHub");
     }
   };
 
+
   useEffect(()=>{
     handleSearch();
+   
   },[])
   const handleKeyDown = (e) => {
    
@@ -64,15 +67,15 @@ export const Search = ({ onSearch }) => {
     )}
 
       {profile && (
-        <div className="card-container">
-          <div className="card-body">
+        <div className="card-search-container">
+          <div className="card-search-body">
             <img
-              className="card-avatar"
+              className="card-search-avatar"
               alt={profile.name}
               src={profile.avatar_url}
             />
 
-            <div className="card-text">
+            <div className="card-search-text">
               <span style={{}}>{profile.name}</span>
 
               <span>{profile.html_url}</span>

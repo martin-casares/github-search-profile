@@ -1,12 +1,14 @@
-body,
-html {
-  height: 100%;
+html{
+
+  height: 100vh;
+}
+body {
+  background-color: #272937;
   text-align: center;
   place-items: center;
-  background-color: #272937;
 }
 
-.hero-container {
+.hero-search {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("./assets/hero-img.jpg");
   min-height: 20rem;
@@ -31,6 +33,7 @@ html {
   position: relative;
   top: -30px;
   left: 10px;
+  text-align: start;
 }
 .hero-image img{
   background-color:  #272937;
@@ -39,12 +42,16 @@ html {
   padding: 5px;
    width: 70px;
   height: 70px;
-  bottom: 0px;
+ 
 }
 
 .hero-image h2{
   font-size: 1.2rem;
-  margin-top: 0px;
+  margin: 10px 0 10px 0;
+}
+
+.hero-image p{
+margin-top: 0px;
 }
 
 .hero-info{
@@ -64,4 +71,52 @@ html {
   border-left: 1px solid gray;
   height: 100px;
   margin: 0 8px 0 8px;
+}
+
+
+/* cards */
+.two-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-content {
+  width: 40%;
+  box-sizing: border-box; /* Esto asegura que el ancho incluya el relleno y el borde */
+  padding: 10px; 
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #1b1b2f;
+  
+}
+.card-text{
+  font-size: 0.8rem;
+  color: #bcb9b9;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  
+}
+
+.card-text-title{
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.card-text-body {
+ /*  font-size: 0.9rem */
+}
+
+.card-text-footer{
+  margin-top: 1rem;
+}
+.card-text-footer span{
+  align-items: center;
+  
+  margin-right: 1.5rem;
+  
 }
