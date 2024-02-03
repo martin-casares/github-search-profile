@@ -101,6 +101,7 @@ function App() {
 
             )}
 
+                  <button>Ver más</button>
         
         </>
       )}
