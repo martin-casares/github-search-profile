@@ -14,7 +14,7 @@
   font-weight: bold;
   outline: none;
 }
-.card-container {
+.card-search-container {
   margin: 1rem;
   display: flex;
   align-items: start;
@@ -26,20 +26,20 @@
   background: #1b1b2f;
 }
 
-.card-body {
+.card-search-body {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.card-avatar {
+.card-search-avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.card-text {
+.card-search-text {
   text-align: right;
   display: flex;
   flex-direction: column;
